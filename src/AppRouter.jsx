@@ -1,25 +1,16 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 import Home from "./pages/Home";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import PrivateRoute from "./components/PrivateRoute";
+import CreateTransaction from "./pages/CreateTransaction";
+import UpdateTransaction from "./pages/UpdateTransaction";
+import Reports from "./pages/Reports";
 
 export default function AppRouter() {
   return (
     <Router>
-      <nav style={{ marginBottom: "20px" }}>
-        <Link to="/" style={{ marginRight: "10px" }}>
-          Home
-        </Link>
-        <Link to="/about" style={{ marginRight: "10px" }}>
-          About
-        </Link>
-        <Link to="/contact">Contact</Link>
-      </nav>
-
       <Routes>
         <Route path="/login" element={<Login />} />
 
@@ -33,18 +24,26 @@ export default function AppRouter() {
           }
         />
         <Route
-          path="/about"
+          path="/reports"
           element={
             <PrivateRoute>
-              <About />
+              <Reports />
             </PrivateRoute>
           }
         />
         <Route
-          path="/contact"
+          path="/create-transaction"
           element={
             <PrivateRoute>
-              <Contact />
+              <CreateTransaction />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/update-transaction/:id"
+          element={
+            <PrivateRoute>
+              <UpdateTransaction />
             </PrivateRoute>
           }
         />
