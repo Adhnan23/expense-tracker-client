@@ -12,9 +12,9 @@ const UpdateTransaction = () => {
   useEffect(() => {
     const fetchTransaction = async () => {
       try {
-        const res = await transactionsApi.getTransactions();
-        const t = res.data.transactions.find((tx) => tx._id === id);
-        setTransaction(t);
+        const res = (await transactionsApi.getTransactionsById(id)).data
+          .transaction;
+        setTransaction(res);
       } catch (err) {
         console.error(err);
       } finally {

@@ -9,7 +9,7 @@ export const getCategories = async () => api.get("/categories");
 
 export const transactionsApi = {
   getTransactions: async () => api.get("/transactions"),
-  // getTransactionsById: async (id) => api.get(`/transactions/${id}`),
+  getTransactionsById: async (id) => api.get(`/transactions/${id}`),
   createTransaction: async (data) => api.post("/transactions", data),
   updateTransaction: async (id, data) => api.put(`/transactions/${id}`, data),
   deleteTransaction: async (id) => api.delete(`/transactions/${id}`),
